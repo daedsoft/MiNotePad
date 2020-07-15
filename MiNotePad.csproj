@@ -49,8 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CLASES\Acciones.cs" />
-    <Compile Include="CLASES\Propiedades.cs" />
+    <Compile Include="CLASES\MiNotePadAcciones.cs" />
     <Compile Include="FORMULARIOS\frmEDITOR.cs">
       <SubType>Form</SubType>
     </Compile>

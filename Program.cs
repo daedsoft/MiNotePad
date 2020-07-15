@@ -17,8 +17,8 @@ namespace MiNotePad
         static void Main(string[] args)
         {            
             if (args.Length > 0){
-                Propiedades.RutaRecibida = args[0];
-                Propiedades.Estado = "Sin cambios.";
+                CLASES.MiNotePadAcciones.SetRutaRecibida(args[0]);
+                CLASES.MiNotePadAcciones.SetEstado("Sin cambios.");
             }
 
             Application.EnableVisualStyles();

@@ -9,8 +9,56 @@ using System.Windows.Forms;
 
 namespace MiNotePad.CLASES
 {
-    public static class Acciones
+    public static class MiNotePadAcciones
     {
+        public static string Titulo { get; set; }
+        public static string Estado { get; set; }
+        public static string RutaRecibida { get; set; }
+        public static string ArchivoOriginal { get; set; }
+        public static string ArchivoLeido { get; set; }
+
+        public static string GetTitulo() 
+        {
+            return Titulo;
+        }
+
+        public static string GetArchivoLeido()
+        {
+            return ArchivoLeido;
+        }
+
+        public static string GetEstado()
+        {
+            return Estado;
+        }
+
+        public static void SetEstado(string NuevoEstado)
+        {
+            Estado = NuevoEstado;
+        }
+
+        public static string GetArchivoOriginal()
+        {
+            return ArchivoOriginal;
+        }
+
+        public static void SetArchivoOriginal(string Ruta)
+        {
+            ArchivoOriginal = File.ReadAllText(Ruta);
+            Titulo = $"Mi NotePad {Ruta}";
+        }
+
+        public static string GetRutaRecibida()
+        {
+            return RutaRecibida;
+        }
+
+        public static void SetRutaRecibida(string Ruta)
+        {
+            RutaRecibida = Ruta;
+        }
+
+
         public static void Abrir()
         {
             try
@@ -22,11 +70,11 @@ namespace MiNotePad.CLASES
                 if (ofdAbrir.ShowDialog() == DialogResult.OK)
                 {
                     Ruta = ofdAbrir.InitialDirectory + ofdAbrir.FileName;
-                    Propiedades.ArchivoLeido = File.ReadAllText(Ruta);
-                    Propiedades.RutaRecibida = Ruta;
-                    Propiedades.Titulo = $"Mi NotePad {Ruta}";
-                    Propiedades.Estado = "Sin cambios.";
-                    Propiedades.ArchivoOriginal = File.ReadAllText(Propiedades.ArchivoLeido);                                       
+                    ArchivoLeido = File.ReadAllText(Ruta);
+                    RutaRecibida = Ruta;                    
+                    Titulo = $"Mi NotePad {Ruta}";
+                    Estado = "Sin cambios.";
+                    ArchivoOriginal = File.ReadAllText(ArchivoLeido);                                       
                 }
                 
             }
@@ -44,7 +92,7 @@ namespace MiNotePad.CLASES
                     {
                         MiArchivo.Write(ContenidoTextBox);
                         MiArchivo.Close();
-                        Propiedades.Estado = "Guardado.";
+                        Estado = "Guardado.";
                     }
                 }
                 else
@@ -60,17 +108,17 @@ namespace MiNotePad.CLASES
                         {
                             MiArchivo.Write(ContenidoTextBox);
                             MiArchivo.Close();
-                            Propiedades.Estado = "Guardado.";
-                            Propiedades.Titulo = $"Mi NotePad {MiNuevoArchivo}";
-                            Propiedades.RutaRecibida = sfdGuardar.InitialDirectory + sfdGuardar.FileName; ;
+                            Estado = "Guardado.";
+                            Titulo = $"Mi NotePad {MiNuevoArchivo}";
+                            RutaRecibida = sfdGuardar.InitialDirectory + sfdGuardar.FileName; ;
                         }
                     }
                 }
             }
             catch
             {
-                Propiedades.Estado = "Error";
-                Propiedades.Titulo = "Error";
+                Estado = "Error";
+                Titulo = "Error";
             }
         }
 

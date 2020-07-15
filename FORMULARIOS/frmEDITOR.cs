@@ -1,13 +1,7 @@
 ﻿using MiNotePad.CLASES;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MiNotePad
@@ -22,12 +16,12 @@ namespace MiNotePad
             InitializeComponent();
 
             try
-            {             
-                Propiedades.ArchivoOriginal = File.ReadAllText(Propiedades.RutaRecibida);
+            {
+                MiNotePadAcciones.SetArchivoOriginal(MiNotePadAcciones.GetRutaRecibida()); //= File.ReadAllText(Acciones.GetRutaRecibida);
 
-                this.Text = $"Mi NotePad {Propiedades.RutaRecibida}";
+                this.Text = $"Mi NotePad {MiNotePadAcciones.GetTitulo()}";
 
-                lbESTADO.Text = Propiedades.Estado;
+                lbESTADO.Text = MiNotePadAcciones.GetEstado();
             }
             catch { }
         }
@@ -36,7 +30,7 @@ namespace MiNotePad
         {
             try 
             {
-                RichTextBox.Text = File.ReadAllText(Propiedades.RutaRecibida);
+                RichTextBox.Text = File.ReadAllText(MiNotePadAcciones.GetRutaRecibida());
                 RichTextBox.Focus();
             }
             catch { }
@@ -44,13 +38,13 @@ namespace MiNotePad
 
         private void btNUEVO_Click(object sender, EventArgs e)
         {
-            Acciones.Nuevo();
+            MiNotePadAcciones.Nuevo();
         }
 
 
         private void btABRIR_Click(object sender, EventArgs e)
         {
-            if (lbESTADO.Text == "Archivo modificado (sin guardar)")
+            if (lbESTADO.Text == "Archivo modificado (sin guardar).")
             {
                 DialogResult dialogResult = MessageBox.Show("Si crea abre otro archivo se perderán los cambios realizados. " +
                                                             "¿Desea continuar?", "Abrir otro archivo",
@@ -58,38 +52,39 @@ namespace MiNotePad
                                                             MessageBoxIcon.Warning);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    Acciones.Abrir();
+                    MiNotePadAcciones.Abrir();
 
-                    RichTextBox.Text = Propiedades.ArchivoLeido;
-                    this.Text = Propiedades.Titulo;
-                    lbESTADO.Text = Propiedades.Estado;
+                    RichTextBox.Text = MiNotePadAcciones.GetArchivoLeido();
+                    this.Text = MiNotePadAcciones.GetTitulo();
+                    lbESTADO.Text = MiNotePadAcciones.GetEstado();
                     RichTextBox.Focus();
                 }
             }
             else
             {
-                Acciones.Abrir();
+                MiNotePadAcciones.Abrir();
 
-                RichTextBox.Text = Propiedades.ArchivoLeido;
-                this.Text = Propiedades.Titulo;
-                lbESTADO.Text = Propiedades.Estado;
+                RichTextBox.Text = MiNotePadAcciones.GetArchivoLeido();
+                this.Text = MiNotePadAcciones.GetTitulo();
+                lbESTADO.Text = MiNotePadAcciones.GetEstado();
                 RichTextBox.Focus();
             }
         }
 
         private void btGUARDAR_Click(object sender, EventArgs e)
         {
-            Acciones.Guardar(Propiedades.RutaRecibida, RichTextBox.Text);
-            this.Text = Propiedades.Titulo;
-            lbESTADO.Text = Propiedades.Estado;
+            MiNotePadAcciones.Guardar(MiNotePadAcciones.GetRutaRecibida(), RichTextBox.Text);
+            this.Text = MiNotePadAcciones.GetTitulo();
+            lbESTADO.Text = MiNotePadAcciones.GetEstado();
             RichTextBox.Focus();            
         }
 
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
-            if (Propiedades.ArchivoOriginal != RichTextBox.Text) 
+            if (MiNotePadAcciones.GetArchivoOriginal() != RichTextBox.Text) 
             {
-                lbESTADO.Text = "Archivo modificado (sin guardar)";
+                MiNotePadAcciones.SetEstado("Archivo modificado (sin guardar).");
+                lbESTADO.Text = MiNotePadAcciones.GetEstado();
             }
         }
                 
@@ -136,7 +131,7 @@ namespace MiNotePad
 
                 try
                 {
-                    var Pos = Acciones.Buscar(txBUSCAR.Text, i, RichTextBox);
+                    var Pos = MiNotePadAcciones.Buscar(txBUSCAR.Text, i, RichTextBox);
                     RichTextBox.Focus();
                     RichTextBox.SelectionStart = Pos;
                     RichTextBox.SelectionLength = txBUSCAR.TextLength;
@@ -170,7 +165,7 @@ namespace MiNotePad
 
         private void frmEDITOR_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (lbESTADO.Text == "Archivo modificado (sin guardar)")
+            if (lbESTADO.Text == "Archivo modificado (sin guardar).")
             {
                 DialogResult dialogResult = MessageBox.Show("Hay cambios sin guardar." +
                                                             "¿Desea salir de todas formas?", "Abrir otro archivo",
