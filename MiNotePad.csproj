@@ -50,6 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CLASES\MiNotePadAcciones.cs" />
+    <Compile Include="FORMULARIOS\frmACERCA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMULARIOS\frmACERCA.Designer.cs">
+      <DependentUpon>frmACERCA.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORMULARIOS\frmEDITOR.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +64,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FORMULARIOS\frmACERCA.resx">
+      <DependentUpon>frmACERCA.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FORMULARIOS\frmEDITOR.resx">
       <DependentUpon>frmEDITOR.cs</DependentUpon>
     </EmbeddedResource>

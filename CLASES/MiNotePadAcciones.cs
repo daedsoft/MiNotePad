@@ -11,11 +11,12 @@ namespace MiNotePad.CLASES
 {
     public static class MiNotePadAcciones
     {
-        public static string Titulo { get; set; }
-        public static string Estado { get; set; }
-        public static string RutaRecibida { get; set; }
-        public static string ArchivoOriginal { get; set; }
-        public static string ArchivoLeido { get; set; }
+        
+        static string Titulo = string.Empty;
+        static string Estado = string.Empty;
+        static string RutaRecibida = string.Empty;
+        static string ArchivoOriginal = string.Empty;
+        static string ArchivoLeido = string.Empty;
 
         public static string GetTitulo() 
         {
@@ -32,9 +33,27 @@ namespace MiNotePad.CLASES
             return Estado;
         }
 
-        public static void SetEstado(string NuevoEstado)
+        public static void SetEstado(int IdEstado)
         {
-            Estado = NuevoEstado;
+            switch (IdEstado)
+            {
+                case 0:
+                    Estado = "Sin cambios.";
+                    break;
+
+                case 1:
+                    Estado = "Modificado.";
+                    break;
+
+                case 2:
+                    Estado = "Guardado.";
+                    break;
+
+                default:
+                    Estado = "Error.";
+                    break;
+            }
+
         }
 
         public static string GetArchivoOriginal()
@@ -73,8 +92,8 @@ namespace MiNotePad.CLASES
                     ArchivoLeido = File.ReadAllText(Ruta);
                     RutaRecibida = Ruta;                    
                     Titulo = $"Mi NotePad {Ruta}";
-                    Estado = "Sin cambios.";
-                    ArchivoOriginal = File.ReadAllText(ArchivoLeido);                                       
+                    SetEstado(0);                    
+                    ArchivoOriginal = ArchivoLeido;                                       
                 }
                 
             }
@@ -92,7 +111,7 @@ namespace MiNotePad.CLASES
                     {
                         MiArchivo.Write(ContenidoTextBox);
                         MiArchivo.Close();
-                        Estado = "Guardado.";
+                        SetEstado(2);
                     }
                 }
                 else
@@ -108,7 +127,7 @@ namespace MiNotePad.CLASES
                         {
                             MiArchivo.Write(ContenidoTextBox);
                             MiArchivo.Close();
-                            Estado = "Guardado.";
+                            SetEstado(2);
                             Titulo = $"Mi NotePad {MiNuevoArchivo}";
                             RutaRecibida = sfdGuardar.InitialDirectory + sfdGuardar.FileName; ;
                         }
@@ -116,8 +135,7 @@ namespace MiNotePad.CLASES
                 }
             }
             catch
-            {
-                Estado = "Error";
+            {                
                 Titulo = "Error";
             }
         }

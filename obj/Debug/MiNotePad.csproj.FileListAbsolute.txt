@@ -8,3 +8,4 @@ D:\DAED\CODE\C SHARP\MiNotePad\MiNotePad\obj\Debug\MiNotePad.csproj.CoreCompileI
 D:\DAED\CODE\C SHARP\MiNotePad\MiNotePad\obj\Debug\MiNotePad.exe
 D:\DAED\CODE\C SHARP\MiNotePad\MiNotePad\obj\Debug\MiNotePad.pdb
 D:\DAED\CODE\C SHARP\MiNotePad\MiNotePad\obj\Debug\MiNotePad.frmEDITOR.resources
+D:\DAED\CODE\C SHARP\MiNotePad\MiNotePad\obj\Debug\MiNotePad.FORMULARIOS.frmACERCA.resources

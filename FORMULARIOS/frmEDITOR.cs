@@ -1,4 +1,5 @@
 ﻿using MiNotePad.CLASES;
+using MiNotePad.FORMULARIOS;
 using System;
 using System.Drawing;
 using System.IO;
@@ -7,17 +8,17 @@ using System.Windows.Forms;
 namespace MiNotePad
 {
     public partial class frmEDITOR : Form
-    {
-
-        int Tam = 14; //contador para el tamaño de la letra
-
+    {        
+        //
+        // CONSTRUCTOR
+        //
         public frmEDITOR()
         {
             InitializeComponent();
 
             try
             {
-                MiNotePadAcciones.SetArchivoOriginal(MiNotePadAcciones.GetRutaRecibida()); //= File.ReadAllText(Acciones.GetRutaRecibida);
+                MiNotePadAcciones.SetArchivoOriginal(MiNotePadAcciones.GetRutaRecibida()); 
 
                 this.Text = $"Mi NotePad {MiNotePadAcciones.GetTitulo()}";
 
@@ -26,6 +27,9 @@ namespace MiNotePad
             catch { }
         }
 
+        //
+        // AL CARGAR FORM
+        //
         private void frmEDITOR_Load(object sender, EventArgs e)
         {
             try 
@@ -36,14 +40,20 @@ namespace MiNotePad
             catch { }
         }
 
+        //
+        // NUEVO
+        //
         private void btNUEVO_Click(object sender, EventArgs e)
         {
             MiNotePadAcciones.Nuevo();
         }
 
-
+        //
+        // ABRIR
+        //
         private void btABRIR_Click(object sender, EventArgs e)
-        {
+        {            
+
             if (lbESTADO.Text == "Archivo modificado (sin guardar).")
             {
                 DialogResult dialogResult = MessageBox.Show("Si crea abre otro archivo se perderán los cambios realizados. " +
@@ -71,6 +81,9 @@ namespace MiNotePad
             }
         }
 
+        //
+        // GUARDAR
+        //
         private void btGUARDAR_Click(object sender, EventArgs e)
         {
             MiNotePadAcciones.Guardar(MiNotePadAcciones.GetRutaRecibida(), RichTextBox.Text);
@@ -79,15 +92,22 @@ namespace MiNotePad
             RichTextBox.Focus();            
         }
 
+        //
+        // DETECTAR CAMBIOS
+        //
         private void TextBox_TextChanged(object sender, EventArgs e)
-        {
+        {           
             if (MiNotePadAcciones.GetArchivoOriginal() != RichTextBox.Text) 
             {
-                MiNotePadAcciones.SetEstado("Archivo modificado (sin guardar).");
+                MiNotePadAcciones.SetEstado(1);
                 lbESTADO.Text = MiNotePadAcciones.GetEstado();
             }
         }
-                
+
+        //
+        // ZOOM
+        //
+        int Tam = 14;
         private void btZOOM_IN_Click(object sender, EventArgs e)
         {            
             if (Tam < 48)
@@ -138,7 +158,7 @@ namespace MiNotePad
                 }
                 catch
                 {
-                    MessageBox.Show("No se encontraron resultados.", "Error");
+                    MessageBox.Show($"El texto ({txBUSCAR.Text}) no se encuentra en el archivo.", "No se encontraron resultados.");
                 }
             }
         }
@@ -161,11 +181,13 @@ namespace MiNotePad
             RichTextBox.Cut();
         }        
 
-        
+        //
+        // VALIDACION AL CERRAR APP
+        //
 
         private void frmEDITOR_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (lbESTADO.Text == "Archivo modificado (sin guardar).")
+            if (lbESTADO.Text == "Modificado.")
             {
                 DialogResult dialogResult = MessageBox.Show("Hay cambios sin guardar." +
                                                             "¿Desea salir de todas formas?", "Abrir otro archivo",
@@ -176,6 +198,46 @@ namespace MiNotePad
                     e.Cancel = true;
                 }
             }
+        }
+
+        //
+        // SHORTCUTS
+        //
+        private void frmEDITOR_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.A)
+            {
+                btABRIR.PerformClick();
+            }
+            else if (e.Modifiers == Keys.Control && e.KeyCode == Keys.G)
+            {
+                btGUARDAR.PerformClick();
+            }
+            else if (e.Modifiers == Keys.Control && e.KeyCode == Keys.N)
+            {
+                btNUEVO.PerformClick();
+            }
+            else if (e.Modifiers == Keys.Control && e.KeyCode == Keys.B)
+            {
+                btBUSCAR.PerformClick();
+            }
+            else if (e.Modifiers == Keys.Control && e.KeyCode == Keys.Add)
+            {
+                btZOOM_IN.PerformClick();
+            }
+            else if (e.Modifiers == Keys.Control && e.KeyCode == Keys.Subtract)
+            {
+                btZOOM_OUT.PerformClick();
+            }
+        }
+
+        //
+        // ACERCA DE
+        //
+        private void lbACERCADE_Click(object sender, EventArgs e)
+        {
+            frmACERCA ObfrmACERCA = new frmACERCA();
+            ObfrmACERCA.ShowDialog();
         }
     }
 }

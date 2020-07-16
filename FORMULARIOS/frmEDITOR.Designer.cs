@@ -48,6 +48,8 @@
             this.lbCerrar = new System.Windows.Forms.Label();
             this.txBUSCAR = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.lbACERCADE = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.cmCLIPBOARD.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -67,7 +69,7 @@
             this.panel1.Controls.Add(this.btGUARDAR);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(52, 693);
+            this.panel1.Size = new System.Drawing.Size(52, 878);
             this.panel1.TabIndex = 0;
             // 
             // btBUSCAR
@@ -76,10 +78,11 @@
             this.btBUSCAR.FlatAppearance.BorderSize = 0;
             this.btBUSCAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btBUSCAR.Image = ((System.Drawing.Image)(resources.GetObject("btBUSCAR.Image")));
-            this.btBUSCAR.Location = new System.Drawing.Point(0, 650);
+            this.btBUSCAR.Location = new System.Drawing.Point(0, 835);
             this.btBUSCAR.Name = "btBUSCAR";
             this.btBUSCAR.Size = new System.Drawing.Size(52, 40);
             this.btBUSCAR.TabIndex = 6;
+            this.toolTip.SetToolTip(this.btBUSCAR, "Buscar (Ctrl + B)");
             this.btBUSCAR.UseVisualStyleBackColor = true;
             this.btBUSCAR.Click += new System.EventHandler(this.btBUSCAR_Click);
             // 
@@ -88,10 +91,11 @@
             this.btZOOM_OUT.FlatAppearance.BorderSize = 0;
             this.btZOOM_OUT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btZOOM_OUT.Image = ((System.Drawing.Image)(resources.GetObject("btZOOM_OUT.Image")));
-            this.btZOOM_OUT.Location = new System.Drawing.Point(0, 187);
+            this.btZOOM_OUT.Location = new System.Drawing.Point(0, 185);
             this.btZOOM_OUT.Name = "btZOOM_OUT";
             this.btZOOM_OUT.Size = new System.Drawing.Size(52, 40);
             this.btZOOM_OUT.TabIndex = 5;
+            this.toolTip.SetToolTip(this.btZOOM_OUT, "Disminuir (Ctrl + Menos)");
             this.btZOOM_OUT.UseVisualStyleBackColor = true;
             this.btZOOM_OUT.Click += new System.EventHandler(this.btZOOM_OUT_Click);
             // 
@@ -100,10 +104,11 @@
             this.btZOOM_IN.FlatAppearance.BorderSize = 0;
             this.btZOOM_IN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btZOOM_IN.Image = ((System.Drawing.Image)(resources.GetObject("btZOOM_IN.Image")));
-            this.btZOOM_IN.Location = new System.Drawing.Point(0, 141);
+            this.btZOOM_IN.Location = new System.Drawing.Point(0, 139);
             this.btZOOM_IN.Name = "btZOOM_IN";
             this.btZOOM_IN.Size = new System.Drawing.Size(52, 40);
             this.btZOOM_IN.TabIndex = 4;
+            this.toolTip.SetToolTip(this.btZOOM_IN, "Aumentar (Ctrl + Más)");
             this.btZOOM_IN.UseVisualStyleBackColor = true;
             this.btZOOM_IN.Click += new System.EventHandler(this.btZOOM_IN_Click);
             // 
@@ -112,10 +117,11 @@
             this.btNUEVO.FlatAppearance.BorderSize = 0;
             this.btNUEVO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btNUEVO.Image = ((System.Drawing.Image)(resources.GetObject("btNUEVO.Image")));
-            this.btNUEVO.Location = new System.Drawing.Point(0, 95);
+            this.btNUEVO.Location = new System.Drawing.Point(0, 93);
             this.btNUEVO.Name = "btNUEVO";
             this.btNUEVO.Size = new System.Drawing.Size(52, 40);
             this.btNUEVO.TabIndex = 3;
+            this.toolTip.SetToolTip(this.btNUEVO, "Nuevo (Ctrl + N)");
             this.btNUEVO.UseVisualStyleBackColor = true;
             this.btNUEVO.Click += new System.EventHandler(this.btNUEVO_Click);
             // 
@@ -124,10 +130,11 @@
             this.btABRIR.FlatAppearance.BorderSize = 0;
             this.btABRIR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btABRIR.Image = ((System.Drawing.Image)(resources.GetObject("btABRIR.Image")));
-            this.btABRIR.Location = new System.Drawing.Point(0, 49);
+            this.btABRIR.Location = new System.Drawing.Point(0, 47);
             this.btABRIR.Name = "btABRIR";
             this.btABRIR.Size = new System.Drawing.Size(52, 40);
             this.btABRIR.TabIndex = 2;
+            this.toolTip.SetToolTip(this.btABRIR, "Abrir (Ctrl + A)");
             this.btABRIR.UseVisualStyleBackColor = true;
             this.btABRIR.Click += new System.EventHandler(this.btABRIR_Click);
             // 
@@ -136,10 +143,11 @@
             this.btGUARDAR.FlatAppearance.BorderSize = 0;
             this.btGUARDAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btGUARDAR.Image = ((System.Drawing.Image)(resources.GetObject("btGUARDAR.Image")));
-            this.btGUARDAR.Location = new System.Drawing.Point(0, 3);
+            this.btGUARDAR.Location = new System.Drawing.Point(0, 1);
             this.btGUARDAR.Name = "btGUARDAR";
             this.btGUARDAR.Size = new System.Drawing.Size(52, 40);
             this.btGUARDAR.TabIndex = 1;
+            this.toolTip.SetToolTip(this.btGUARDAR, "Guardar (Ctrl + G)");
             this.btGUARDAR.UseVisualStyleBackColor = true;
             this.btGUARDAR.Click += new System.EventHandler(this.btGUARDAR_Click);
             // 
@@ -156,7 +164,7 @@
             this.RichTextBox.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.RichTextBox.Location = new System.Drawing.Point(52, 0);
             this.RichTextBox.Name = "RichTextBox";
-            this.RichTextBox.Size = new System.Drawing.Size(989, 693);
+            this.RichTextBox.Size = new System.Drawing.Size(849, 878);
             this.RichTextBox.TabIndex = 0;
             this.RichTextBox.Text = "";
             this.RichTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
@@ -207,11 +215,12 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.panel2.Controls.Add(this.lbACERCADE);
             this.panel2.Controls.Add(this.lbESTADO);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 693);
+            this.panel2.Location = new System.Drawing.Point(0, 878);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1041, 39);
+            this.panel2.Size = new System.Drawing.Size(901, 39);
             this.panel2.TabIndex = 2;
             // 
             // lbESTADO
@@ -232,7 +241,7 @@
             this.panelBUSCAR.Controls.Add(this.lbCerrar);
             this.panelBUSCAR.Controls.Add(this.txBUSCAR);
             this.panelBUSCAR.Controls.Add(this.label1);
-            this.panelBUSCAR.Location = new System.Drawing.Point(580, 5);
+            this.panelBUSCAR.Location = new System.Drawing.Point(440, 5);
             this.panelBUSCAR.Name = "panelBUSCAR";
             this.panelBUSCAR.Size = new System.Drawing.Size(440, 55);
             this.panelBUSCAR.TabIndex = 4;
@@ -273,21 +282,42 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Buscar";
             // 
+            // toolTip
+            // 
+            this.toolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.toolTip.ForeColor = System.Drawing.Color.WhiteSmoke;
+            // 
+            // lbACERCADE
+            // 
+            this.lbACERCADE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbACERCADE.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbACERCADE.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbACERCADE.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lbACERCADE.Location = new System.Drawing.Point(864, 2);
+            this.lbACERCADE.Name = "lbACERCADE";
+            this.lbACERCADE.Size = new System.Drawing.Size(36, 36);
+            this.lbACERCADE.TabIndex = 1;
+            this.lbACERCADE.Text = "?";
+            this.lbACERCADE.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbACERCADE.Click += new System.EventHandler(this.lbACERCADE_Click);
+            // 
             // frmEDITOR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1041, 732);
+            this.ClientSize = new System.Drawing.Size(901, 917);
             this.Controls.Add(this.panelBUSCAR);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.RichTextBox);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "frmEDITOR";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mi NotePad";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEDITOR_FormClosing);
             this.Load += new System.EventHandler(this.frmEDITOR_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmEDITOR_KeyDown);
             this.panel1.ResumeLayout(false);
             this.cmCLIPBOARD.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -318,6 +348,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btBUSCAR;
         private System.Windows.Forms.Label lbCerrar;
+        private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.Label lbACERCADE;
     }
 }
 
