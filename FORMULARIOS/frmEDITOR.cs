@@ -54,31 +54,24 @@ namespace MiNotePad
         private void btABRIR_Click(object sender, EventArgs e)
         {            
 
-            if (lbESTADO.Text == "Archivo modificado (sin guardar).")
+            if (MiNotePadAcciones.GetEstado() == "Modificado.")
             {
                 DialogResult dialogResult = MessageBox.Show("Si crea abre otro archivo se perderán los cambios realizados. " +
                                                             "¿Desea continuar?", "Abrir otro archivo",
                                                             MessageBoxButtons.YesNo,
                                                             MessageBoxIcon.Warning);
-                if (dialogResult == DialogResult.Yes)
+                if (dialogResult == DialogResult.No)
                 {
-                    MiNotePadAcciones.Abrir();
-
-                    RichTextBox.Text = MiNotePadAcciones.GetArchivoLeido();
-                    this.Text = MiNotePadAcciones.GetTitulo();
-                    lbESTADO.Text = MiNotePadAcciones.GetEstado();
-                    RichTextBox.Focus();
+                    return;
                 }
             }
-            else
-            {
-                MiNotePadAcciones.Abrir();
 
-                RichTextBox.Text = MiNotePadAcciones.GetArchivoLeido();
-                this.Text = MiNotePadAcciones.GetTitulo();
-                lbESTADO.Text = MiNotePadAcciones.GetEstado();
-                RichTextBox.Focus();
-            }
+            MiNotePadAcciones.Abrir();
+
+            RichTextBox.Text = MiNotePadAcciones.GetArchivoLeido();
+            this.Text = MiNotePadAcciones.GetTitulo();
+            lbESTADO.Text = MiNotePadAcciones.GetEstado();
+            RichTextBox.Focus();
         }
 
         //

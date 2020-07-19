@@ -1,0 +1,11 @@
+D:\DAED\CODE\C SHARP\MiNotePad\MiNotePad\bin\Release\MiNotePad.exe.config
+D:\DAED\CODE\C SHARP\MiNotePad\MiNotePad\bin\Release\MiNotePad.exe
+D:\DAED\CODE\C SHARP\MiNotePad\MiNotePad\bin\Release\MiNotePad.pdb
+D:\DAED\CODE\C SHARP\MiNotePad\MiNotePad\obj\Release\MiNotePad.FORMULARIOS.frmACERCA.resources
+D:\DAED\CODE\C SHARP\MiNotePad\MiNotePad\obj\Release\MiNotePad.frmEDITOR.resources
+D:\DAED\CODE\C SHARP\MiNotePad\MiNotePad\obj\Release\MiNotePad.Properties.Resources.resources
+D:\DAED\CODE\C SHARP\MiNotePad\MiNotePad\obj\Release\MiNotePad.csproj.GenerateResource.cache
+D:\DAED\CODE\C SHARP\MiNotePad\MiNotePad\obj\Release\MiNotePad.csproj.CoreCompileInputs.cache
+D:\DAED\CODE\C SHARP\MiNotePad\MiNotePad\obj\Release\MiNotePad.exe
+D:\DAED\CODE\C SHARP\MiNotePad\MiNotePad\obj\Release\MiNotePad.pdb
+D:\DAED\CODE\C SHARP\MiNotePad\MiNotePad\obj\Release\MiNotePad.csprojAssemblyReference.cache

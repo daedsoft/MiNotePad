@@ -1,23 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿//using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace MiNotePad.CLASES
 {
     public static class MiNotePadAcciones
     {
-        
-        static string Titulo = string.Empty;
-        static string Estado = string.Empty;
-        static string RutaRecibida = string.Empty;
-        static string ArchivoOriginal = string.Empty;
-        static string ArchivoLeido = string.Empty;
+        // CAMPOS ENCAPSULADOS
+        private static string Titulo = string.Empty;
+        private static string Estado = string.Empty;
+        private static string RutaRecibida = string.Empty;
+        private static string ArchivoOriginal = string.Empty;
+        private static string ArchivoLeido = string.Empty;
 
+        // MÉTODOS DE ACCESO Y ASIGNACIÓN
         public static string GetTitulo() 
         {
             return Titulo;
@@ -26,12 +23,7 @@ namespace MiNotePad.CLASES
         public static string GetArchivoLeido()
         {
             return ArchivoLeido;
-        }
-
-        public static string GetEstado()
-        {
-            return Estado;
-        }
+        }        
 
         public static void SetEstado(int IdEstado)
         {
@@ -56,15 +48,21 @@ namespace MiNotePad.CLASES
 
         }
 
-        public static string GetArchivoOriginal()
+        public static string GetEstado()
         {
-            return ArchivoOriginal;
+            return Estado;
         }
+
 
         public static void SetArchivoOriginal(string Ruta)
         {
             ArchivoOriginal = File.ReadAllText(Ruta);
             Titulo = $"Mi NotePad {Ruta}";
+        }
+
+        public static string GetArchivoOriginal()
+        {
+            return ArchivoOriginal;
         }
 
         public static string GetRutaRecibida()
@@ -77,7 +75,7 @@ namespace MiNotePad.CLASES
             RutaRecibida = Ruta;
         }
 
-
+        // MÉTODOS
         public static void Abrir()
         {
             try
@@ -99,7 +97,6 @@ namespace MiNotePad.CLASES
             }
             catch {  }
         }
-
 
         public static void Guardar(string RutaRecibida, string ContenidoTextBox)
         {
@@ -128,8 +125,9 @@ namespace MiNotePad.CLASES
                             MiArchivo.Write(ContenidoTextBox);
                             MiArchivo.Close();
                             SetEstado(2);
+                            SetRutaRecibida(sfdGuardar.InitialDirectory + sfdGuardar.FileName);
                             Titulo = $"Mi NotePad {MiNuevoArchivo}";
-                            RutaRecibida = sfdGuardar.InitialDirectory + sfdGuardar.FileName; ;
+                            
                         }
                     }
                 }
