@@ -17,8 +17,8 @@ namespace MiNotePad
         static void Main(string[] args)
         {            
             if (args.Length > 0){
-                CLASES.MiNotePadAcciones.SetRutaRecibida(args[0]);
-                CLASES.MiNotePadAcciones.SetEstado(0);
+                MiNotePadAcciones.SetRutaRecibida(args[0]);
+                MiNotePadAcciones.SetEstado(0);
             }
 
             Application.EnableVisualStyles();

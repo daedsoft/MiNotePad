@@ -12,6 +12,7 @@ namespace MiNotePad
         //
         // CONSTRUCTOR
         //
+
         public frmEDITOR()
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace MiNotePad
         //
         // AL CARGAR FORM
         //
+
         private void frmEDITOR_Load(object sender, EventArgs e)
         {
             try 
@@ -51,15 +53,18 @@ namespace MiNotePad
         //
         // ABRIR
         //
+
         private void btABRIR_Click(object sender, EventArgs e)
         {            
 
             if (MiNotePadAcciones.GetEstado() == "Modificado.")
             {
-                DialogResult dialogResult = MessageBox.Show("Si crea abre otro archivo se perderán los cambios realizados. " +
-                                                            "¿Desea continuar?", "Abrir otro archivo",
-                                                            MessageBoxButtons.YesNo,
-                                                            MessageBoxIcon.Warning);
+                DialogResult dialogResult = MessageBox.Show(
+                    "Si crea abre otro archivo se perderán los cambios realizados. " +
+                    "¿Desea continuar?", "Abrir otro archivo",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
                 if (dialogResult == DialogResult.No)
                 {
                     return;
@@ -77,6 +82,7 @@ namespace MiNotePad
         //
         // GUARDAR
         //
+
         private void btGUARDAR_Click(object sender, EventArgs e)
         {
             MiNotePadAcciones.Guardar(MiNotePadAcciones.GetRutaRecibida(), RichTextBox.Text);
@@ -88,6 +94,7 @@ namespace MiNotePad
         //
         // DETECTAR CAMBIOS
         //
+
         private void TextBox_TextChanged(object sender, EventArgs e)
         {           
             if (MiNotePadAcciones.GetArchivoOriginal() != RichTextBox.Text) 
@@ -100,6 +107,7 @@ namespace MiNotePad
         //
         // ZOOM
         //
+
         int Tam = 14;
         private void btZOOM_IN_Click(object sender, EventArgs e)
         {            
@@ -151,7 +159,8 @@ namespace MiNotePad
                 }
                 catch
                 {
-                    MessageBox.Show($"El texto ({txBUSCAR.Text}) no se encuentra en el archivo.", "No se encontraron resultados.");
+                    MessageBox.Show($"El texto ({txBUSCAR.Text}) no se encuentra en el archivo.", 
+                        "No se encontraron resultados.");
                 }
             }
         }

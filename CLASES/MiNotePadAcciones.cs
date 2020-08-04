@@ -1,4 +1,4 @@
-﻿//using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.IO;
 
 using System.Windows.Forms;
@@ -76,6 +76,7 @@ namespace MiNotePad.CLASES
         }
 
         // MÉTODOS
+
         public static void Abrir()
         {
             try
